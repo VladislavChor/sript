@@ -1,0 +1,21 @@
+#!/bin/bash
+#create by Vlad Chornomorets
+
+content=$(ls)
+
+for var in $content
+do
+if [ -d $var ]
+then
+echo "$var є директорією. "
+elif [ "$var" = "mysript" ] 
+then
+continue
+elif [ -e $var ]
+then
+new_dir=${var}_dir/
+mkdir $new_dir
+mv $var $new_dir
+echo "Файл $var переміщений у директорію $new_dir."
+fi
+done
